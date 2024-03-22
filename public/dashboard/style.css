@@ -1,0 +1,9 @@
+#products > div {
+    height: 80px;
+    display: grid;
+    grid-template-columns: 20px 100px 1fr;
+}
+
+#products > div > * {
+    max-height: 80px;
+}
