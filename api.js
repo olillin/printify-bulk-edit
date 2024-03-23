@@ -8,7 +8,7 @@ router.post('/login', (req, res) => {
         res.status(400).send('No accessToken')
         return
     }
-    fetchPrintify('shops.json', {}, authFromCookie(req)).then(async response => {
+    fetchPrintify('shops.json', {}, 'Bearer ' + accessToken).then(async response => {
         if (response.ok) {
             // Valid access token
             const json = await response.json()
@@ -21,12 +21,20 @@ router.post('/login', (req, res) => {
 })
 
 function authFromCookie(req) {
+    if (!req.cookies.accessToken) return null
     return 'Bearer ' + req.cookies.accessToken
 }
 
 router.post('/logout', (req, res) => {
     res.clearCookie('accessToken')
     res.sendStatus(200)
+})
+
+router.get('/', (req, res) => {
+    let loggedIn = !!authFromCookie(req)
+    res.json({
+        loggedIn: loggedIn,
+    })
 })
 
 router.get('/shops', async (req, res) => {

@@ -1,5 +1,13 @@
 const error = document.getElementById('error')
 
+fetch('/api')
+    .then(res => res.json())
+    .then(json => {
+        if (json.loggedIn) {
+            window.location.href = '/dashboard'
+        }
+    })
+
 document.getElementById('loginForm').addEventListener('submit', event => {
     event.preventDefault()
     error.innerHTML = ''

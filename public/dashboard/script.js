@@ -1,6 +1,12 @@
 const shopSelect = document.getElementById('shop')
 const productsList = document.getElementById('products')
 
+document.getElementById('logout')?.addEventListener('click', () => {
+    fetch('/api/logout', { method: 'POST' }).then(() => {
+        window.location.href = '/'
+    })
+})
+
 const shops = []
 function loadShops() {
     fetch('/api/shops')
