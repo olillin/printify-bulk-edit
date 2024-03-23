@@ -7,3 +7,26 @@
 #products > div > * {
     max-height: 80px;
 }
+
+.buttonRow {
+    display: block;
+    padding: 1em;
+}
+
+.panel {
+    position: sticky;
+    background-color: white;
+    /* border: 1px solid black; */
+    /* border-radius: 4px; */
+    /* box-shadow: 1px 2px 8px 0px #0005; */
+    margin: 1rem;
+    padding: 0.5em;
+    
+    /* left: 60px; */
+    top: 0px;
+}
+
+.panel form > * {
+    margin: 1em;
+    display: block;
+}

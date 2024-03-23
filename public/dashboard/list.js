@@ -1,6 +1,8 @@
 const shopSelect = document.getElementById('shop')
 const productsList = document.getElementById('products')
 
+var products
+
 document.getElementById('logout')?.addEventListener('click', () => {
     fetch('/api/logout', { method: 'POST' }).then(() => {
         window.location.href = '/'
@@ -28,21 +30,36 @@ loadShops()
 shopSelect.addEventListener('change', reloadShop)
 
 function reloadShop() {
-    const id = shopSelect.value
-    console.log('Selected shop: ' + id)
-    loadListings(id)
+    const shopId = shopSelect.value
+    console.log('Selected shop: ' + shopId)
+    loadListings(shopId)
 }
 
-function loadListings(id) {
-    fetch(`/api/${id}/products`)
+function getSelectedProductIds() {
+    return new Set(
+        Array.from(productsList.querySelectorAll('input[type=checkbox]'))
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value)
+    )
+}
+
+function loadListings(shopId) {
+    const previouslySelectedIds = getSelectedProductIds()
+    productsList.innerHTML = ''
+
+    fetch(`/api/${shopId}/products`)
         .then(res => res.json())
         .then(json => {
-            const products = json.data
+            products = json.data
             for (let product of products) {
                 const productDiv = document.createElement('div')
 
                 const checkBox = document.createElement('input')
                 checkBox.type = 'checkbox'
+                checkBox.value = product.id
+                if (previouslySelectedIds.has(product.id)) {
+                    checkBox.checked = true
+                }
                 productDiv.appendChild(checkBox)
 
                 const coverImageUrl = product.images.filter(e => e.is_default)[0].src

@@ -16,11 +16,74 @@
 
     </select>
 
+    <span class="buttonRow">
+        <button id="editTitle">Edit title</button>
+        <button id="editDescription">Edit description</button>
+        <button id="replaceTitle">Replace title</button>
+        <button id="replaceDescription">Replace description</button>
+    </span>
+    
+    <div class="panel" id="editTitlePanel">
+        <form id="editTitleForm">
+            <h1>Edit Title</h1>
+    
+            <label for="editTitleText">New title</label>
+            <input type="text" name="editTitleText" id="editTitleText">
+    
+            <button type="submit"></button>
+            <span class="output"></span>
+        </form>
+    </div>
+    <div class="panel" id="editDescriptionPanel">
+        <form id="editDescriptionForm">
+            <h1>Edit Description</h1>
+    
+            <label for="editDescriptionText">New description</label>
+            <textarea name="editDescriptionText" id="editDescriptionText"></textarea>
+    
+            <button type="submit"></button>
+            <span class="output"></span>
+        </form>
+    </div>
+    <div class="panel" id="replaceTitlePanel">
+        <form id="replaceTitleForm">
+            <h1>Replace Title</h1>
+    
+            <label for="replaceTitlePattern">Replace</label>
+            <input type="text" name="replaceTitlePattern" id="replaceTitlePattern">
+            <label for="replaceTitleWithRegex">Use regex</label>
+            <input type="checkbox" name="replaceTitleWithRegex" id="replaceTitleWithRegex">
+    
+            <label for="replaceTitleWith">Replace with</label>
+            <input type="text" name="replaceTitleWith" id="replaceTitleWith">
+    
+            <button type="submit"></button>
+            <span class="output"></span>
+        </form>
+    </div>
+    <div class="panel" id="replaceDescriptionPanel">
+        <form id="replaceDescriptionForm">
+            <h1>Replace Description</h1>
+    
+            <label for="replaceDescriptionPattern">Replace</label>
+            <input type="text" name="replaceDescriptionPattern" id="replaceDescriptionPattern">
+            <label for="replaceDescriptionWithRegex">Use regex</label>
+            <input type="checkbox" name="replaceDescriptionWithRegex" id="replaceDescriptionWithRegex">
+    
+            <label for="replaceDescriptionWith">Replace with</label>
+            <input type="text" name="replaceDescriptionWith" id="replaceDescriptionWith">
+    
+            <button type="submit"></button>
+            <span class="output"></span>
+        </form>
+    </div>
+
     <ul id="products">
 
     </ul>
 
-    <script src="./script.js"></script>
+    <script src="list.js"></script>
+    <script src="edit.js"></script>
 </body>
 
 </html>

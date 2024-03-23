@@ -54,12 +54,43 @@ router.get('/:shopId/products', (req, res) => {
         .then(json => res.json(json))
 })
 
+router.put('/:shopId/product/:productId', (req, res) => {
+    const shopId = req.params?.shopId
+    if (!shopId) {
+        res.status(400).send('No shopId')
+        return
+    }
+    const productId = req.params?.productId
+    if (!productId) {
+        res.status(400).send('No productId')
+        return
+    }
+
+    console.log(`Updated product ${shopId}:${productId} with the following body:`)
+    console.log(req.body)
+
+    console.log(req.body)
+    fetchPrintify(
+        `shops/${shopId}/products/${productId}.json`,
+        {
+            method: 'PUT',
+            body: JSON.stringify(req.body),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        },
+        authFromCookie(req)
+    )
+        .then(response => response.json())
+        .then(json => res.json(json))
+})
+
 function fetchPrintify(endpoint, params, auth) {
     const p = Object.assign({}, params)
-    if (!p['headers']) {
-        p['headers'] = {}
+    if (!p.headers) {
+        p.headers = {}
     }
-    p['headers']['Authorization'] = auth
+    p.headers.Authorization = auth
 
     return fetch(`https://api.printify.com/v1/${endpoint}`, p)
 }
