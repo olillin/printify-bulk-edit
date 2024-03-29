@@ -1,6 +1,13 @@
 const shopSelect = document.getElementById('shop')
 const productsList = document.getElementById('products')
 
+const selectAll = document.getElementById('selectAll')
+selectAll.addEventListener('click', () => {
+    Array.from(productsList.querySelectorAll('input[type=checkbox]')).forEach(checkbox => {
+        checkbox.checked = selectAll.checked
+    })
+})
+
 var products
 
 document.getElementById('logout')?.addEventListener('click', () => {
@@ -60,6 +67,10 @@ function loadListings(shopId) {
                 if (previouslySelectedIds.has(product.id)) {
                     checkBox.checked = true
                 }
+                checkBox.addEventListener('click', () => {
+                    const checkboxes = Array.from(productsList.querySelectorAll('input[type=checkbox]'))
+                    selectAll.checked = checkboxes.every(checkbox => checkbox.checked)
+                })
                 productDiv.addEventListener('click', ev => {
                     if (ev.target !== checkBox) {
                         checkBox.click()

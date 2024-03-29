@@ -82,6 +82,10 @@ select {
 }
 
 /* List */
+.selectAll {
+    margin: 4px;
+}
+
 #products {
     padding-left: 0;
     margin: 8px;
