@@ -61,7 +61,7 @@ function loadListings(shopId) {
                     checkBox.checked = true
                 }
                 productDiv.addEventListener('click', ev => {
-                    if (ev.isTrusted && ev.target !== checkBox) {
+                    if (ev.target !== checkBox) {
                         checkBox.click()
                     }
                 })
