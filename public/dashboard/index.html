@@ -1,89 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard — Printify Bulk Edit</title>
+        <link rel="stylesheet" href="/common.css" />
+        <link rel="stylesheet" href="dashboard.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <body>
+        <nav>
+            <span>
+                <label for="shop">Select shop</label>
+                <select name="shop" id="shop"></select>
+            </span>
+            <button id="logout">Log out</button>
+        </nav>
 
-<body>
-    <button id="logout">Log out</button>
-    <label for="shop">Select shop</label>
-    <select name="shop" id="shop">
+        <div class="edit">
+            <span class="buttonRow">
+                <button id="editTitle">Set title</button>
+                <button id="editDescription">Set description</button>
+                <button id="replaceTitle">Replace in title</button>
+                <button id="replaceDescription">Replace in description</button>
+            </span>
 
-    </select>
+            <div class="panel" id="editTitlePanel">
+                <form id="editTitleForm">
+                    <label for="editTitleText">New title</label>
+                    <input type="text" name="editTitleText" id="editTitleText" />
 
-    <span class="buttonRow">
-        <button id="editTitle">Edit title</button>
-        <button id="editDescription">Edit description</button>
-        <button id="replaceTitle">Replace title</button>
-        <button id="replaceDescription">Replace description</button>
-    </span>
-    
-    <div class="panel" id="editTitlePanel">
-        <form id="editTitleForm">
-            <h1>Edit Title</h1>
-    
-            <label for="editTitleText">New title</label>
-            <input type="text" name="editTitleText" id="editTitleText">
-    
-            <button type="submit"></button>
-            <span class="output"></span>
-        </form>
-    </div>
-    <div class="panel" id="editDescriptionPanel">
-        <form id="editDescriptionForm">
-            <h1>Edit Description</h1>
-    
-            <label for="editDescriptionText">New description</label>
-            <textarea name="editDescriptionText" id="editDescriptionText"></textarea>
-    
-            <button type="submit"></button>
-            <span class="output"></span>
-        </form>
-    </div>
-    <div class="panel" id="replaceTitlePanel">
-        <form id="replaceTitleForm">
-            <h1>Replace Title</h1>
-    
-            <label for="replaceTitlePattern">Replace</label>
-            <input type="text" name="replaceTitlePattern" id="replaceTitlePattern">
-            <label for="replaceTitleWithRegex">Use regex</label>
-            <input type="checkbox" name="replaceTitleWithRegex" id="replaceTitleWithRegex">
-    
-            <label for="replaceTitleWith">Replace with</label>
-            <input type="text" name="replaceTitleWith" id="replaceTitleWith">
-    
-            <button type="submit"></button>
-            <span class="output"></span>
-        </form>
-    </div>
-    <div class="panel" id="replaceDescriptionPanel">
-        <form id="replaceDescriptionForm">
-            <h1>Replace Description</h1>
-    
-            <label for="replaceDescriptionPattern">Replace</label>
-            <input type="text" name="replaceDescriptionPattern" id="replaceDescriptionPattern">
-            <label for="replaceDescriptionWithRegex">Use regex</label>
-            <input type="checkbox" name="replaceDescriptionWithRegex" id="replaceDescriptionWithRegex">
-    
-            <label for="replaceDescriptionWith">Replace with</label>
-            <input type="text" name="replaceDescriptionWith" id="replaceDescriptionWith">
-    
-            <button type="submit"></button>
-            <span class="output"></span>
-        </form>
-    </div>
+                    <button type="submit"></button>
+                    <span class="output"></span>
+                </form>
+            </div>
+            <div class="panel" id="editDescriptionPanel">
+                <form id="editDescriptionForm">
+                    <label for="editDescriptionText">New description</label>
+                    <textarea name="editDescriptionText" id="editDescriptionText"></textarea>
 
-    <ul id="products">
+                    <button type="submit"></button>
+                    <span class="output"></span>
+                </form>
+            </div>
+            <div class="panel" id="replaceTitlePanel">
+                <form id="replaceTitleForm">
+                    <label for="replaceTitlePattern">Replace</label>
+                    <input type="text" name="replaceTitlePattern" id="replaceTitlePattern" />
+                    <label for="replaceTitleWithRegex">Use regex</label>
+                    <input type="checkbox" name="replaceTitleWithRegex" id="replaceTitleWithRegex" />
 
-    </ul>
+                    <label for="replaceTitleWith">Replace with</label>
+                    <input type="text" name="replaceTitleWith" id="replaceTitleWith" />
 
-    <script src="list.js"></script>
-    <script src="edit.js"></script>
-</body>
+                    <button type="submit"></button>
+                    <span class="output"></span>
+                </form>
+            </div>
+            <div class="panel" id="replaceDescriptionPanel">
+                <form id="replaceDescriptionForm">
+                    <label for="replaceDescriptionPattern">Replace</label>
+                    <input type="text" name="replaceDescriptionPattern" id="replaceDescriptionPattern" />
+                    <label for="replaceDescriptionWithRegex">Use regex</label>
+                    <input type="checkbox" name="replaceDescriptionWithRegex" id="replaceDescriptionWithRegex" />
 
+                    <label for="replaceDescriptionWith">Replace with</label>
+                    <input type="text" name="replaceDescriptionWith" id="replaceDescriptionWith" />
+
+                    <button type="submit"></button>
+                    <span class="output"></span>
+                </form>
+            </div>
+        </div>
+
+        <ul id="products"></ul>
+
+        <script src="list.js"></script>
+        <script src="edit.js"></script>
+
+        <span class="disclaimer">This project is not associated or approved of by Printify, Inc</span>
+    </body>
 </html>

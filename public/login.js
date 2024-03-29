@@ -34,7 +34,7 @@ document.getElementById('loginForm').addEventListener('submit', event => {
             // Redirect to dashboard
             window.location.href = '/dashboard'
         } else {
-            error.innerHTML = await response.text()
+            error.innerHTML = 'An error occured: ' + (await response.text())
         }
     })
 })

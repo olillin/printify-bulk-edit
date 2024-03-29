@@ -1,0 +1,29 @@
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    padding: 2rem 3rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+form {
+    width: 300px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 4px;
+}
+
+form > a {
+    margin-top: 8px;
+}
+
+form > input {
+    width: 100%;
+}

@@ -1,0 +1,102 @@
+body {
+    padding-bottom: 4rem;
+}
+
+/* Nav bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 12px;
+
+    background-color: #2aa;
+}
+
+select {
+    margin-inline: 4px;
+    padding: 0.5em;
+
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+#logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logout::before {
+    content: '';
+    background-image: url('/img/door-leave.svg');
+    background-size: cover;
+    height: 1em;
+    width: 1em;
+    transform: translateX(-2px);
+    scale: 1.5;
+}
+
+/* Button row */
+.buttonRow {
+    display: block;
+    padding: 1em;
+}
+
+.selected {
+    background-color: #2aa;
+    border-color: #299;
+}
+
+.selected:hover {
+    background-color: #188;
+    border-color: #177;
+}
+
+/* Edit menu */
+.edit {
+    background-color: white;
+
+    top: 0px;
+    position: sticky;
+    width: 100vw;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Panels */
+.panel {
+    margin: 4px 0;
+    padding: 0 3rem 0.5em;
+}
+
+.panel form {
+    margin: auto;
+}
+
+.panel form input[type='text'],
+.panel form textarea,
+.panel form label {
+    margin: 4px;
+    display: block;
+
+    width: 90%;
+}
+
+/* List */
+#products {
+    padding-left: 0;
+    margin: 8px;
+}
+
+#products > div {
+    height: 80px;
+    display: grid;
+    grid-template-columns: 20px 100px 1fr;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 4px;
+    margin: 2px;
+}
+
+#products > div > * {
+    max-height: 80px;
+}

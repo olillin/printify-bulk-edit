@@ -60,6 +60,11 @@ function loadListings(shopId) {
                 if (previouslySelectedIds.has(product.id)) {
                     checkBox.checked = true
                 }
+                productDiv.addEventListener('click', ev => {
+                    if (ev.isTrusted && ev.target !== checkBox) {
+                        checkBox.click()
+                    }
+                })
                 productDiv.appendChild(checkBox)
 
                 const coverImageUrl = product.images.filter(e => e.is_default)[0].src

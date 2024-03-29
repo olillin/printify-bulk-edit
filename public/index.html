@@ -4,20 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login — Printify Bulk Edit</title>
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
-    <form id="loginForm">
-        <label for="accessToken">Access token</label>
-        <input type="password" name="accessToken" id="accessToken">
+    <main>
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="accessToken">Your Printify access token</label>
+            <input type="password" name="accessToken" id="accessToken">
 
-        <button type="submit">Login</button>
-
-        <span id="error"></span>
-    </form>
-
-    <script src="/login.js"></script>
+            <a href="https://help.printify.com/hc/en-us/articles/4483626447249-How-can-I-generate-an-API-token"
+               target="_blank"
+               rel="noreferrer noopener">
+                How do I get an access token?
+            </a>
+            <button type="submit">Login</button>
+            <span id="error" class="error"></span>
+            </form>
+        <script src="/login.js"></script>
+    </main>
+    <span class="disclaimer">This project is not associated or approved of by Printify, Inc</span>
 </body>
 
 </html>

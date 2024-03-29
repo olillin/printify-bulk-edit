@@ -7,10 +7,14 @@ const replaceTitlePanel = document.getElementById('replaceTitlePanel')
 const replaceDescriptionButton = document.getElementById('replaceDescription')
 const replaceDescriptionPanel = document.getElementById('replaceDescriptionPanel')
 
-const panels = Array.from(document.getElementsByClassName('panel'))
+const panels = new Array(editTitlePanel, editDescriptionPanel, replaceTitlePanel, replaceDescriptionPanel)
+const buttons = new Array(editTitleButton, editDescriptionButton, replaceTitleButton, replaceDescriptionButton)
 function hidePanels() {
     panels.forEach(panel => {
         panel.style.display = 'none'
+    })
+    buttons.forEach(button => {
+        button.classList.remove('selected')
     })
 }
 hidePanels()
@@ -31,24 +35,28 @@ function openEditTitlePanel() {
     updateButtonLabels()
     hidePanels()
     editTitlePanel.style.display = 'block'
+    editTitleButton.classList.add('selected')
 }
 
 function openEditDescriptionPanel() {
     updateButtonLabels()
     hidePanels()
     editDescriptionPanel.style.display = 'block'
+    editDescriptionButton.classList.add('selected')
 }
 
 function openReplaceTitlePanel() {
     updateButtonLabels()
     hidePanels()
     replaceTitlePanel.style.display = 'block'
+    replaceTitleButton.classList.add('selected')
 }
 
 function openReplaceDescriptionPanel() {
     updateButtonLabels()
     hidePanels()
     replaceDescriptionPanel.style.display = 'block'
+    replaceDescriptionButton.classList.add('selected')
 }
 
 function updateButtonLabels() {
